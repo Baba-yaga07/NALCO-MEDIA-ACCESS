@@ -1,0 +1,347 @@
+.navbar {
+  width: 100vw;
+  background: #1E1917;
+  border-bottom: 3px solid #AE2828;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+}
+
+/* ── Top Container ──────────────────────────────────────── */
+.navbar-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ── Logo — top-left ────────────────────────────────────── */
+.logo-section {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.logo-section img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  margin-right: 100px;
+}
+
+/* ── Desktop Nav ────────────────────────────────────────── */
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  margin-left: auto;           /* pushes nav items to the right */
+}
+
+@media (max-width: 640px) {
+  .desktop-nav {
+    display: none;
+  }
+}
+
+/* ── Shared Button Base ─────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 18px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.12s;
+  white-space: nowrap;
+}
+
+/* Outline — ghost style on dark bar */
+.btn-outline {
+  background: transparent;
+  color: #F5ECEC;
+  border: 1.5px solid rgba(174, 40, 40, 0.55);
+}
+
+.btn-outline:hover {
+  background: rgba(174, 40, 40, 0.12);
+  border-color: #AE2828;
+  color: #FFFFFF;
+}
+
+/* Primary — solid red */
+.btn-primary {
+  background: #AE2828;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(174, 40, 40, 0.35);
+}
+
+.btn-primary:hover {
+  background: #962020;
+  box-shadow: 0 4px 14px rgba(174, 40, 40, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Dashboard pill */
+.dashboard-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #F5ECEC;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+}
+
+.dashboard-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #FFFFFF;
+}
+
+/* Logout */
+.logout-btn {
+  background: #AE2828;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 0 16px;
+  box-shadow: 0 2px 6px rgba(174, 40, 40, 0.28);
+}
+
+.logout-btn:hover {
+  background: #962020;
+}
+
+/* ── Nav Buttons Group (Login + Register) ───────────────── */
+.nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ── User Section (logged in) ───────────────────────────── */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ── User Dropdown ──────────────────────────────────────── */
+.user-dropdown {
+  position: relative;
+}
+
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.18s;
+  user-select: none;
+}
+
+.user-box:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #AE2828;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 2px rgba(174, 40, 40, 0.4);
+}
+
+.user-name {
+  color: #F5ECEC;
+  font-size: 0.875rem;
+  font-weight: 600;
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-arrow {
+  color: #B09090;
+  font-size: 0.6rem;
+  transition: transform 0.2s;
+  line-height: 1;
+}
+
+.dropdown-arrow.rotate {
+  transform: rotate(180deg);
+}
+
+/* ── Dropdown Panel ─────────────────────────────────────── */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 240px;
+  background: #FDFAF9;
+  border: 1px solid #E6D8D6;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 16px rgba(30, 25, 23, 0.14),
+    0 1px 4px rgba(174, 40, 40, 0.06);
+  overflow: hidden;
+  z-index: 200;
+  animation: dropIn 0.15s ease;
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-header {
+  background: #AE2828;
+  padding: 10px 14px;
+}
+
+.dropdown-title {
+  color: #FFFFFF;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.dropdown-body {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.dropdown-body p {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.82rem;
+}
+
+.dropdown-body p span {
+  color: #9A7070;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.dropdown-body p strong {
+  color: #1E1917;
+  font-weight: 600;
+  text-align: right;
+  max-width: 155px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-footer {
+  padding: 10px 14px 14px;
+  border-top: 1px solid #EDE0DE;
+}
+
+/* ── Mobile Menu Button ─────────────────────────────────── */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.mobile-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 640px) {
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* ── Hamburger Icon ─────────────────────────────────────── */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 22px;
+}
+
+.hamburger span {
+  display: block;
+  height: 2px;
+  border-radius: 2px;
+  background: #F5ECEC;
+  transition: transform 0.25s, opacity 0.2s;
+  transform-origin: center;
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── Mobile Nav Panel ───────────────────────────────────── */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px 20px 20px;
+  background: #28201E;
+  border-top: 1px solid rgba(174, 40, 40, 0.25);
+  animation: slideDown 0.2s ease;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 640px) {
+  .mobile-nav.open {
+    display: flex;
+  }
+}
+
+.mobile-user-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 4px;
+}
+
+.mobile-user-info .user-name {
+  font-size: 0.95rem;
+}
